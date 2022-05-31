@@ -1,0 +1,175 @@
+.logoHead{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding-top: 1rem;
+}
+.logoText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ .logoText p{
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+ }
+
+ .syllabusContainer{
+    padding: 3rem;
+ }
+.syllabusText{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.syllabusDescription{
+   font-size: 1.5rem;
+}
+
+.syllabusContentHolder{
+   display: flex;
+   padding-top: 3rem;
+}
+
+.syllabusContentHolder__1{
+   flex: 5;
+   padding-right: 1rem;
+}
+
+.syllabusContentHolder__2{
+   flex: 1.2;
+   background: rgba(0, 0, 0, 0.178);
+   padding: 0.4rem;
+}
+
+.syllabusContentHolder__2__toc{
+   margin-bottom: 0.5rem;
+   padding-bottom: 0.3rem;
+   
+   border-bottom: 1px solid white;
+}
+
+.substrandHead{
+      display: flex;
+    margin: 0.5rem;
+    width: 100%;
+}
+
+.Outcomes__1{
+   flex: 2;
+   padding-right: 0.5rem;
+}
+
+.Outcomes__2{
+   flex: 2.3;
+   padding-right: 0.5rem;
+}
+
+.substrandContainer{
+   /* margin-top: 1.5rem;
+   margin-left: 0.6rem; */
+   width: 100%;
+   height: auto;
+}
+
+.substrandContainer__1{
+   margin-right: 1.2rem;
+   border: 2px solid rgb(36, 36, 65);
+}
+
+.substrandHeading{
+   display: flex;
+   /* margin-top: 1.5rem; */
+   padding-top: 0.5rem;
+   padding-bottom: 0.2rem;
+   /* border-top: 2px solid rgb(36, 36, 65);; */
+   /* padding-left: 0.5rem; */
+}
+
+.substrandHeading__1{
+   flex: 3;
+   padding-left: 0.5rem;
+   padding-right: 0.5rem;
+}
+
+.substrandHeading__2{
+   flex: 2 
+   }
+
+   .substrandStrand{
+      padding-left: 0.5rem;
+  }
+  
+  .substrandHeads{
+      display: flex;
+      padding-bottom: 0.2rem;
+  }
+  .substrandHeads__1{
+      flex: 3;
+      padding-left: 0.5rem;
+  }
+  .substrandHeads__2{
+      flex: 2;
+  }
+
+  .substrandStatement p{
+   margin-bottom: 0.5rem;
+   padding-left: 0.5rem;
+   }
+   .substrandOutcomes{
+       display: flex;
+       background-color: rgb(36, 36, 65);
+   }
+   .substrandOutcomes__1{
+       flex: 2;
+       color: white;
+       font-weight: bold;
+       padding: 0.5rem;
+   }
+   
+   .substrandOutcomes__2{
+       flex: 2.3;
+       color: white;
+       font-weight: bold;
+       padding: 0.5rem;
+   }
+   
+   .substrandOutcomesStem{
+       display: flex;   
+   }
+   
+   .substrandOutcomes__stem__1{
+       flex: 2;
+       font-weight: bold;
+       padding: 0.5rem;
+       font-style: italic;
+   }
+   
+   .substrandOutcomes__stem__2{
+       flex: 2.3;
+       font-weight: bold;
+       padding: 0.5rem;
+       font-style: italic;
+   }
+
+   .substrand_assessment{
+      margin-top: 1rem;
+        /* padding-top: 1rem; */
+       /* margin-left: 0.6rem;
+       margin-right: 0.6rem;
+       margin-bottom: 0.6rem; */
+       /* border-top: 1px solid black; */
+   }
+
+   .yearContainer{
+      display: flex;
+      margin-right: 1rem;
+   }
+
+   .yearsHolder{
+      margin-top: 1.5rem;
+      margin-right: 2rem;
+   }
+
+   
