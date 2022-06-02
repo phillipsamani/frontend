@@ -1,12 +1,12 @@
-import { useState,  useEffect } from "react";
+import { useState,  useEffect, Fragment } from "react";
 import { useWindowWidth } from "@react-hook/window-size";
 import {
   AppstoreOutlined,
   ContainerOutlined,
-  
+  CameraOutlined,
   PieChartOutlined,
- 
-  MailOutlined,
+  BookOutlined,
+  CarryOutOutlined,
   MenuUnfoldOutlined
 } from '@ant-design/icons';
 import { Layout } from "antd";
@@ -25,27 +25,41 @@ const getItem = (label, key, icon, children, type) => {
 }
 
 const items = [
-  getItem('Home', '1', <PieChartOutlined />),
+  getItem('All Teacher Guides', '1', <PieChartOutlined />),
   
-  getItem('PPY Syllabus', '3', <ContainerOutlined />),
-  getItem('Primary Syllabuses', 'sub1', <MailOutlined />, [
-    getItem(<Link href="/syllabus/[slug]" as="/syllabus/primary-science-syllabus" ><a>Science Syllabus</a></Link>, '5'),
-    getItem(<Link href="/syllabus/[slug]" as="/syllabus/primary-social-studies-syllabus" ><a>Social Studies Syllabus</a></Link>, '6'),
+  getItem('Year 1 TGs', 'sub1', <CarryOutOutlined />, [
+    getItem('Option 2', '2'),
+    getItem('Option 3', '3'),
     
   ]),
-  getItem('Secondary Syllabuses', 'sub2', <AppstoreOutlined />, [
+  getItem('Year 2  TGs', 'sub2', <AppstoreOutlined />, [
+    getItem('Option 4', '4'),
+    getItem('Option 5', '5'),
     
+  ]),
+  getItem('Year 3  TGs', 'sub3', <MenuUnfoldOutlined />, [
+    getItem('Option 6', '6'),
+    getItem('Option 7', '7'),
+   
+  ]),
+  getItem('Year 4  TGs', 'sub4', <BookOutlined />, [
+    getItem('Option 8', '8'),
+    getItem('Option 9', '9'),
+   
+  ]),
+  getItem('Year 5  TGs', 'sub5', <ContainerOutlined />, [
     getItem('Option 10', '10'),
-    
+    getItem('Option 11', '11'),
+   
   ]),
-  getItem('Senior Secondary Syllabuses', 'sub3', <MenuUnfoldOutlined />, [
-    getItem('Option 13', '13'),
+  getItem('Year 6  TGs', 'sub6', <CameraOutlined />, [
+    getItem('Option 12', '12'),
     getItem('Option 13', '13'),
    
   ]),
 ];
 
-const HomeSidebar = () => {
+const GuidesSidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [current, setCurrent] = useState("");
   // hooks
@@ -71,6 +85,7 @@ const HomeSidebar = () => {
   };
 
   return (
+    <Fragment>
     <Sider collapsible collapsed={collapsed} onCollapse={() => setCollapsed(!collapsed)}>
       <Menu
         // defaultSelectedKeys={['1']}
@@ -81,8 +96,10 @@ const HomeSidebar = () => {
         items={items}
       />
     </Sider>
+
+    </Fragment>
    
   );
 };
 
-export default HomeSidebar;
+export default GuidesSidebar;

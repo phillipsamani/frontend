@@ -39,7 +39,7 @@ const TopNav = ({ router }) => {
       </Menu.Item>
       <Menu.Item key="syllabus" icon={<AppstoreOutlined />} style={{ marginLeft: "auto" }}>
         <Link href="/admin/syllabus/syllabus">
-          <a className={activeName("/admin/syllabus/syllabus")}>Syllabus</a>
+          <a className={activeName("/admin/syllabus/syllabus")}>Syllabuses</a>
         </Link>
       </Menu.Item>
       <Menu.Item key="sbooks" icon={<AppstoreOutlined />}>

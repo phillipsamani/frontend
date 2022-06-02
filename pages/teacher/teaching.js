@@ -1,11 +1,13 @@
 // import { Button } from "antd";
 import MainLayout from "../../components/layout/MainLayout";
+import Teacher from '../../components/auth/Teacher'
 
 const Teaching = () => {
     return (
       <MainLayout>
-        <h1>Teacher</h1>
-        
+        <Teacher>
+        <h1>My teaching page</h1>
+        </Teacher>
       </MainLayout>
     );
   }

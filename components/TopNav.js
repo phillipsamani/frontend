@@ -1,17 +1,21 @@
 import { useState, Fragment } from "react";
 import { Menu } from "antd";
 import {
-  
   AppstoreOutlined,
   SettingOutlined,
   PicCenterOutlined,
+  AccountBookOutlined,
+  BlockOutlined,
 } from "@ant-design/icons";
 import ToggleTheme from "./ToggleTheme";
 import Link from "next/link";
 import Head from "next/head";
 import Image from 'next/image'
+import Router from 'next/router';
 
 const { SubMenu } = Menu;
+
+import { signout, isAuth } from '../actions/auth';
 
 const TopNav = () => {
   const [current, setCurrent] = useState("mail");
@@ -41,45 +45,79 @@ const TopNav = () => {
           <a>elearning</a>
         </Link>
       </Menu.Item>
-      <Menu.Item key="signup" icon={<AppstoreOutlined />}>
+      {/* <Menu.Item key="signup" icon={<AppstoreOutlined />}>
         <Link href="/signup">
           <a>Signup</a>
         </Link>
       </Menu.Item>
-      <Menu.Item key="signin" icon={<AppstoreOutlined />}>
-        <Link href="/signin">
+      <Menu.Item key="login" icon={<AppstoreOutlined />}>
+        <Link href="/login">
           <a>Login</a>
         </Link>
-      </Menu.Item>
-      <Menu.Item key="signout" icon={<AppstoreOutlined />}>
-        <Link href="/signout">
-          <a>Signout</a>
+      </Menu.Item> */}
+      
+      <Menu.Item key="syllabuses" icon={<AccountBookOutlined />} style={{ marginLeft: "auto" }}>
+        <Link href="/syllabuses">
+          <a>Syllabuses</a>
+        </Link>
+        </Menu.Item>
+      <Menu.Item key="learners" icon={<BlockOutlined />}>
+        <Link href="/learners">
+          <a>Student Books</a>
         </Link>
       </Menu.Item>
-      <SubMenu
-        key="SubMenu"
-        icon={<SettingOutlined />}
-        title="Admin"
-        style={{ marginLeft: "auto" }}
-      >
-        <Menu.ItemGroup title="Management">
-          <Menu.Item key="setting:2">
-            <Link href="/admin">
-              <a>Admin</a>
-            </Link>
-          </Menu.Item>
-        </Menu.ItemGroup>
-      </SubMenu>
-      <Menu.Item key="teaching" icon={<AppstoreOutlined />}>
+      <Menu.Item key="guides" icon={<AppstoreOutlined />}>
+        <Link href="/guides">
+          <a>Teacher Guides</a>
+        </Link>
+      </Menu.Item>
+      
+
+      {isAuth() && isAuth().role === 1 && (
+          <Fragment>
+              <SubMenu
+                key="SubMenu"
+                icon={<SettingOutlined />}
+                title="Admin"
+                style={{ marginLeft: "auto" }}
+              >
+                <Menu.ItemGroup title="Management">
+                  <Menu.Item key="setting:2">
+                    <Link href="/admin">
+                      <a>Admin</a>
+                    </Link>
+                  </Menu.Item>
+                </Menu.ItemGroup>
+              </SubMenu>
+          </Fragment>
+        )}
+
+      {isAuth() && isAuth().student === 1 && (
+          <Menu.Item key="learning" icon={<AppstoreOutlined />}  style={{ marginLeft: "auto" }}>
+          <Link href="/student/learning">
+            <a>My Learning</a>
+          </Link>
+        </Menu.Item> 
+      )}{isAuth() && isAuth().teacher === 1 && (
+        <Menu.Item key="teaching" icon={<AppstoreOutlined />} style={{ marginLeft: "auto" }}>
         <Link href="/teacher/teaching">
           <a>My Teaching</a>
         </Link>
-      </Menu.Item>
-      <Menu.Item key="learning" icon={<AppstoreOutlined />}>
-        <Link href="/student/learning">
-          <a>My Learning</a>
+      </Menu.Item> 
+    )}
+
+      {isAuth() && (
+        <Menu.Item key="signout" icon={<AppstoreOutlined />} style={{ marginLeft: "auto" }}>
+          <a onClick={() => signout(() => Router.replace(`/`))}>Signout</a>
+        </Menu.Item>
+      )}
+      {!isAuth() && (
+        <Menu.Item key="login" icon={<AppstoreOutlined />}  style={{ marginLeft: "auto" }}>
+        <Link href="/login">
+          <a>Login</a>
         </Link>
       </Menu.Item>
+      )}
       <Menu.Item>
         <ToggleTheme />
       </Menu.Item>

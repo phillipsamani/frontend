@@ -6,7 +6,7 @@ import Link from "next/link";
 import { DropdownButton,Dropdown } from 'react-bootstrap'
 
 import MainLayout from '../../components/layout/MainLayout'
-import HomeMainLayout from '../../components/home/HomeMainLayout'
+import SyllabusMainLayout from '../../components/home/SyllabusMainLayout'
 
 import { singleSubstrand } from '../../actions/substrand'
 import { getSections, getSyllabusSections } from '../../actions/section'
@@ -247,7 +247,7 @@ const showAim = () => {
 
   return (
     <MainLayout>
-      <HomeMainLayout>
+      <SyllabusMainLayout>
         <div className='syllabusContainer'>
           <div className='syllabusText'>{data.subject.name} Syllabus</div>
           <div>
@@ -293,7 +293,7 @@ const showAim = () => {
           </div>
         </div>  
                
-      </HomeMainLayout>
+      </SyllabusMainLayout>
     </MainLayout>
   );
 }

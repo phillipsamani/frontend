@@ -1,11 +1,11 @@
 import { Layout } from "antd";
 const {Content } = Layout;
-import HomeSidebar from './HomeSidebar'
+import SyllabusSidebar from './SyllabusSidebar'
 
-function HomeLayout({children}) {
+function SyllabusMain({children}) {
   return (
     <Layout>
-        <HomeSidebar/>
+        <SyllabusSidebar/>
         <Layout>
             <Content>
                 {children}
@@ -15,4 +15,4 @@ function HomeLayout({children}) {
   );
 }
 
-export default HomeLayout;
+export default SyllabusMain;        

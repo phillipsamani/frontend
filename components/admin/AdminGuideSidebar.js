@@ -24,7 +24,7 @@ import {
   }
   
   const items = [
-    getItem('Guide Dashboard', '1', <PieChartOutlined />),
+    getItem('TG Dashboard', '1', <PieChartOutlined />),
     getItem('Ooption 2', '2', <DesktopOutlined /> 
     
     ),

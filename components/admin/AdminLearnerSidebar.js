@@ -23,7 +23,7 @@ import {
   }
   
   const items = [
-    getItem('Learner Dashboard', '1', <PieChartOutlined />),
+    getItem('LB Dashboard', '1', <PieChartOutlined />),
     getItem('Option 2', '2', <DesktopOutlined />),
     getItem('Option 3', '3', <ContainerOutlined />),
     getItem('Navigation One', 'sub1', <MailOutlined />, [

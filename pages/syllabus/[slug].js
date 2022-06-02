@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from "next/link";
 
 import MainLayout from '../../components/layout/MainLayout'
-import HomeMainLayout from '../../components/home/HomeMainLayout'
+import SyllabusMainLayout from '../../components/home/SyllabusMainLayout'
 import YearMenu from "../../components/year/yearSyllabusMenu"
 
 
@@ -133,7 +133,7 @@ const showAim = () => {
 
   return (
     <MainLayout>
-      <HomeMainLayout>
+      <SyllabusMainLayout>
         <div className='syllabusContainer'>
           <div className='syllabusText'>{syllabus.name}</div>
           <div>
@@ -160,7 +160,7 @@ const showAim = () => {
         </div>
         
        
-      </HomeMainLayout>
+      </SyllabusMainLayout>
     </MainLayout>
   );
 }

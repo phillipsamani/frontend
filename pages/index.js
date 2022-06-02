@@ -3,14 +3,14 @@ import { Layout } from "antd";
 const {Content, Sider } = Layout;
 
 import MainLayout from '../components/layout/MainLayout'
-import HomeMainLayout from '../components/home/HomeMainLayout'
+// import HomeMainLayout from '../components/home/HomeMainLayout'
 
 const Home = () => {
   return (
     <MainLayout>
-      <HomeMainLayout>
+      {/* <HomeMainLayout> */}
         <h1>Home Content will go here!!!!!</h1>
-      </HomeMainLayout>
+      {/* </HomeMainLayout> */}
     </MainLayout>
   );
 }
