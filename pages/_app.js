@@ -1,5 +1,4 @@
 import { ThemeProvider } from "../context/theme";
-// import {SSRProvider} from '@react-aria/ssr'
 
 function MyApp({ Component, pageProps }) {
   return (

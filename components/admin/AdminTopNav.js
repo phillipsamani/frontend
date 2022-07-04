@@ -10,6 +10,7 @@ import {
 } from "@ant-design/icons";
 import ToggleTheme from "../ToggleTheme";
 
+import { signout, isAuth } from '../../actions/auth';
 
 const { SubMenu } = Menu;
 

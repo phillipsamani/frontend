@@ -15,8 +15,98 @@
     letter-spacing: 2px;
  }
 
+ /********************* Syllabus Slug Page  Start ********************************/
  .syllabusContainer{
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
+ }
+/********************** Syllabus Slug Page  END*********************************/
+ /* Syllabus Index Page  Start*/
+ .syllabusMainContainer{
+   display: flex;
+   /* padding-left: 3rem;
+   padding-right: 3rem; */
+   
+ }
+
+ .syllabusContainerSidebar{
+    flex: 1;
+    background-color: rgba(244, 245, 247, 0.1);
+ }
+ .syllabusContainerContent{
+    flex: 4;
+    padding-left: 1rem;
+    background-color: rgba(244, 245, 247, 0.3);
+    min-height: 100vh;
+ }
+
+ .syllabusContainerHolder{
+   background: rgba(0, 0, 0, 0.178);
+   padding-top: 2rem;
+   padding-bottom: 2rem;
+   padding-left: 7rem;
+   padding-right: 7rem;
+   
+ }
+ 
+ .syllabusCategory{
+    display: flex;
+    padding-bottom: 2rem;
+ }
+
+ .syllabusHeading{
+   margin-top: 0.7rem;
+ }
+ .syllabusHeadingContainer{
+   padding: 1.5rem;
+   
+ }
+
+ .syllabusCategoryText{
+   font-size: 1.1rem;
+   padding: 5px;
+  
+}
+
+.syllabusCategoryText a{
+   text-decoration: none;
+   color: black;
+   
+}
+
+.syllabusCategoryTextContainer{
+   margin-right: 1rem;
+   margin-top: 1rem;
+}
+
+.syllabusCategoryText a:hover{
+   text-decoration: none;
+   color: black;
+   
+}
+
+.syllabusCategoryText:hover{
+   font-size: 1.1rem;
+   border: 1px solid black;
+   background-color: black;
+  
+   cursor: pointer;
+   font-weight: bold;
+   border-radius: 7px;
+   padding: 5px;
+   
+}
+
+ /* Syllabus Index Page  End*/
+
+ /* .syllabusContainer{
     padding: 3rem;
+ } */
+
+ .syllabusMainContents{
+    padding-top: 1rem;
  }
 .syllabusText{
     font-size: 2rem;
@@ -90,10 +180,10 @@
 .substrandHeading__1{
    flex: 3;
    padding-left: 0.5rem;
-   padding-right: 0.5rem;
+   /* padding-right: 0.5rem; */
 }
 
-.substrandHeading__2{
+.substrandHeading__2{      
    flex: 2 
    }
 
@@ -165,11 +255,14 @@
    .yearContainer{
       display: flex;
       margin-right: 1rem;
+      align-items: center;
+      justify-content: center;
    }
 
    .yearsHolder{
       margin-top: 1.5rem;
       margin-right: 2rem;
+      
    }
 
    
@@ -203,3 +296,117 @@ filter: blur(5px); */
    padding-left: 10rem;
    padding-right: 15rem;
 }
+
+/**************** Sidebar STARTS****************/
+.sidebarLogo{
+   height: auto;
+   margin-top: 2rem;
+}
+
+.sidebarCoat{
+   padding-top: 1rem;
+   margin-left: auto;
+   margin-right: auto; 
+   width: 40%;
+   background-image: url('../static/coat-of-arm.svg');
+   height: 8rem;
+   width: 8rem;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: 50% 50%;
+}
+
+.sidebarCoatText{
+text-align: center;
+}
+
+.sidebarMehrdContainer{
+   display: flex; 
+   align-items: center;
+   justify-content: center;
+}
+
+.sidebarMehrdContainer p{
+   text-align: center;
+   padding-left: 3rem;
+   padding-right: 3rem;
+   padding-top: 3rem;
+   font-size: 1rem;
+}
+
+.sidebarMehrdBoxContainer{
+   margin-top: 4rem;
+}
+
+.sidebarMehrdBoxContainer p{
+   text-align: center;
+}
+
+.sidebarMehrdImage__1{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 2rem;
+   padding-bottom: 0.5rem;   
+}
+
+.sidebarMehrdContactContainer{
+   margin-top: 5rem;
+}
+
+.sidebarMehrdContactContainer {
+   text-align: center;
+}
+
+.sidebarMehrdImage__2{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 2rem;
+   padding-bottom: 0.5rem; 
+}
+
+.sidebarMehrdEmailContainer{
+   margin-top: 5rem;
+   padding-bottom: 1.5rem;
+}
+
+.sidebarMehrdImage__3{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 2rem;
+   padding-bottom: 0.5rem; 
+}
+
+.sidebarMehrdEmailContainer p{
+   text-align: center;
+}
+
+/**************** Sidebar ENDS****************/
+
+.syllabusCard{
+   margin: 1.5rem;
+   
+   align-items: center;
+   justify-content: center;
+}
+
+.stretchContent{
+   width: 100%;
+   font-weight: bold;
+}
+
+
+.categoryContent{
+   margin-left: 5.5rem;
+}
+
+
+/**************** Admin Syllabus Catogories****************/
+.adminCategoryContainer{
+   margin: 2rem;
+}
+
+
+

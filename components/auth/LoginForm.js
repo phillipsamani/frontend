@@ -33,7 +33,7 @@ const SigninComponent = () => {
                 // save user info to localstorage
                 // authenticate user
                 authenticate(data, () => {
-                    if (isAuth() && isAuth().role === 1) {
+                    if (isAuth() && isAuth().admin === 1) {
                         Router.push(`/admin/syllabus/syllabus`);
                     } else if(isAuth() && isAuth().teacher === 1) {
                         Router.push(`/teacher/teaching`);

@@ -11,12 +11,23 @@ import YearMenu from "../../components/year/yearSyllabusMenu"
 
 import { singleSyllabus } from '../../actions/syllabus'
 import { getSections, getSectionSyllabus } from '../../actions/section'
+import { getCategories } from "../../actions/category";
 
 
 const mySyllabus = ({syllabus}) => {
   const [sections, setSections] = useState([]);
-  
+  const [allCategories, setAllCategories] = useState([])
   const [associated, setAssociated] = useState([]);
+
+  const initCategories = () => {
+    getCategories({}).then((data) => {
+        if (data.error) {
+            console.log(data.error);
+        } else {
+            setAllCategories(data)
+        }
+    })
+  }
    
   const initsections = () => {
       getSections({}).then((data) => {
@@ -29,7 +40,20 @@ const mySyllabus = ({syllabus}) => {
   }
   useEffect(() => {
     initsections();
+    initCategories();
   }, [])
+
+  const category = () => {
+    return allCategories.map((c, i) => {
+        return (
+            <div key={i} className='syllabusCategoryTextContainer'>
+                <Link href="/category/[slug]" as={`/category/${c.slug}`} >
+                    <a className='btn btn-primary syllabusCategoryText'>{c.name} Syllabuses</a>
+                </Link>
+            </div>
+        )
+    })
+}
 
   const syllabusSections = () => {
     return sections.map((s, i) => {
@@ -133,22 +157,30 @@ const showAim = () => {
 
   return (
     <MainLayout>
-      <SyllabusMainLayout>
+      <div>
         <div className='syllabusContainer'>
           <div className='syllabusText'>{syllabus.name}</div>
           <div>
-            <div className='syllabusDescription'>{renderHTML(syllabus.description)}</div>
-          
-          <YearMenu syllabus={syllabus}/>
-          
-          <div>
+            <div className='syllabusDescription'>
+                {renderHTML(syllabus.description)}
+            </div>
+            <div className='syllabusCategory'>
+                {category()}
+            </div>
+        </div>
+
+        <div>
             <div className='syllabusContentHolder'>
               <div className='syllabusContentHolder__1'>
+                <div><YearMenu syllabus={syllabus}/></div>
+                <div className='syllabusMainContents'>
                 {associated.foreword ? showForeword() : null}
                 {associated.acknowledgement ? showAcknowledgement() : null}
                 {associated.introduction ? showIntroduction() : null}
                 {associated.rationale ? showRationale() : null}
                 {associated.aim ? showAim() : null}
+                </div>
+                {/* {JSON.stringify(associated)} */}
               </div>
               <div className='syllabusContentHolder__2'>
                 <div className='syllabusContentHolder__2__toc'> Table of Contents</div>
@@ -156,17 +188,16 @@ const showAim = () => {
                 </div>
             </div>
           </div>
-          </div>
+          
         </div>
-        
-       
-      </SyllabusMainLayout>
+    </div> 
     </MainLayout>
   );
 }
 
 mySyllabus.getInitialProps = ({ query }) => {
   return singleSyllabus(query.slug).then((data) => {
+      console.log(query.slug)
       if (data.error) {
           console.log(data.error);
       } else {

@@ -27576,3 +27576,8 @@ div.ant-typography-edit-content.ant-typography-rtl {
 
 
 /*# sourceMappingURL=antd.dark.css.map*/
+
+/*CUSTOM CLASSES*/
+.adminSyllabusForeword, .adminSyllabusIntroduction{
+  padding: 2rem;
+}

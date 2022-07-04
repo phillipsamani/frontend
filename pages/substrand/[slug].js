@@ -13,9 +13,13 @@ import { getSections, getSyllabusSections } from '../../actions/section'
 import { getYearsWithAllSubstrands } from "../../actions/year";
 
 import { isAuth } from "../../actions/auth";
+import { getCategories } from "../../actions/category";
+
+import logo from '../../public/coat-of-arm.png'
 
 const Substrand = ({data}) => {
   const [sections, setSections] = useState([]);
+  const [allCategories, setAllCategories] = useState([])
   const [associated, setAssociated] = useState([]);
   const [content, setContent] = useState([]);
    
@@ -28,9 +32,32 @@ const Substrand = ({data}) => {
           }
       })
   }
+
+  const initCategories = () => {
+    getCategories({}).then((data) => {
+        if (data.error) {
+            console.log(data.error);
+        } else {
+            setAllCategories(data)
+        }
+    })
+  }
   useEffect(() => {
     initsections();
+    initCategories();
   }, [])
+
+  const category = () => {
+    return allCategories.map((c, i) => {
+        return (
+            <div key={i} className='syllabusCategoryTextContainer'>
+                <Link href="/category/[slug]" as={`/category/${c.slug}`} >
+                    <a className='btn btn-primary syllabusCategoryText'>{c.name} Syllabuses</a>
+                </Link>
+            </div>
+        )
+    })
+}
 
   const syllabusSections = () => {
     return sections.map((s, i) => {
@@ -58,11 +85,13 @@ const showAllYears = () => {
     return data.years?.map((year, i) => (
         <div key={i} className="yearsHolder">
           <DropdownButton id="dropdown-item-button" title={year.name} onClick={() => yearSubstrands(year.slug)}>
-            {showAllYearSubstrands()}
+            {showAllYearSubstrands()} 
           </DropdownButton>
         </div>
     ));
 };
+
+
 
 const yearSubstrands = (slug) => {
     getYearsWithAllSubstrands(slug, { data }).then((data) => {
@@ -85,6 +114,7 @@ const showAllYearSubstrands = () => {
               <a><strong>{c.name} </strong></a>
           </Link>
           </Dropdown.Item>
+         
       </div>
   ));
 };
@@ -130,7 +160,7 @@ const showSubstrand = () => {
                     <div className="substrandHeading__1"><strong>Subject:</strong> {data.subject.name}
                     </div>
                     <div className="substrandHeading__2">
-                        {data.year.name}
+                    {data.year.name}
                     </div>
                 </div>
                 <div className="substrandStrand">
@@ -138,7 +168,9 @@ const showSubstrand = () => {
                 </div>
                 <div className="substrandHeads">
                     <div className="substrandHeads__1"> <strong>Substrand:</strong> {data.name}</div>
-                    <div className="substrandHeads__2">Periods: {data.periods}</div>
+                    <div className="substrandHeads__2"> 
+                        Periods: {data.periods}
+                    </div>
                 </div>
                 <div className="substrandStatement">{renderHTML(data.statement)}</div>
                 <div className="substrandOutcomes">
@@ -247,20 +279,23 @@ const showAim = () => {
 
   return (
     <MainLayout>
-      <SyllabusMainLayout>
-        <div className='syllabusContainer'>
-          <div className='syllabusText'>{data.subject.name} Syllabus</div>
-          <div>
-          <div className='syllabusDescription'>
-              All learning outcomes for the year {data.year.name} substrand <strong>{data.name}</strong>is shown below. 
-              
-          </div>
+     <div>
+        <div className='syllabusContainerHolder'>
+            <div className='syllabusText'>{data.subject.name} Syllabus</div>
+            
+            
+            <div className='syllabusDescription'>
+                All learning outcomes for the {data.year.name} substrand <strong>{data.name}</strong>are shown below. 
+                
+            </div>
+            <div className='syllabusCategory'>
+                    {category()}
+            </div>
+         </div>  
+          <div  className='syllabusContainer'>
           <div className="yearContainer">
-          {showAllYears()}
+          {showAllYears()} 
           </div>
-         
-         
-          <div>
             <div className='syllabusContentHolder'>
               <div className='syllabusContentHolder__1'>
               
@@ -273,6 +308,7 @@ const showAim = () => {
                         <div>
                             {assessment()}
                         </div>
+                        <div></div>
                     </div>
                 </React.Fragment>
                 }
@@ -280,20 +316,19 @@ const showAim = () => {
                 {associated.rationale ? showRationale() : null}
                 {associated.aim ? showAim() : null}
                  
-                 
               </div>
               <div className='syllabusContentHolder__2'>
-                <div className='syllabusContentHolder__2__toc'> Table of Contents</div>
+                <div className='syllabusContentHolder__2__toc'> Table of Contents</div> 
                 <div>{syllabusSections()}</div>
               </div>
             </div>
           </div>
-         
+        
           
-          </div>
+         
         </div>  
                
-      </SyllabusMainLayout>
+    
     </MainLayout>
   );
 }

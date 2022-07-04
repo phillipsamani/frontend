@@ -3,18 +3,18 @@ import { ThemeContext } from "../context/theme";
 import Head from "next/head";
 
 const ToggleTheme = () => {
-  const [mounted, setMounted] = useState(false);
+  // const [mounted, setMounted] = useState(false);
   const [theme, setTheme] = useContext(ThemeContext);
 
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  // useEffect(() => setMounted(true), []);
+  // if (!mounted) return null;
 
   return (
     <>
       <Head>
         <Fragment>
         <link rel="stylesheet" href={`/css/${theme}.css`} />
-                
+        <link rel="stylesheet" href='/css/styles/style.css' />
         </Fragment>
       </Head>
       {theme === "light" ? (

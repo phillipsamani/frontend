@@ -65,9 +65,9 @@ export const signout = next => {
 
 // set cookie
 export const setCookie = (key, value) => {
-    if (process.browser) {
+    if (typeof window !== "undefined") {
         cookie.set(key, value, {
-            expires: 1
+            expires: 600000000000001
         });
     }
 };
@@ -75,7 +75,7 @@ export const setCookie = (key, value) => {
 export const removeCookie = key => {
     if (process.browser) {
         cookie.remove(key, {
-            expires: 1
+            expires: 100000000000000001
         });
     }
 };
@@ -87,7 +87,7 @@ export const getCookie = key => {
 };
 // localstorage
 export const setLocalStorage = (key, value) => {
-    if (process.browser) {
+    if (typeof window !== "undefined") {
         localStorage.setItem(key, JSON.stringify(value));
     }
 };

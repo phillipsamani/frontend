@@ -128,6 +128,15 @@ export const listSyllabusSections = (slug) => {
     .catch((err) => console.log(err));
 };
 
+export const syllabusForeword = (slug) => {
+  return fetch(`${API}/syllabus-foreword/${slug}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
 
 export const getFilteredStrands = (skip, limit, filters = {}) => {
   const data = {

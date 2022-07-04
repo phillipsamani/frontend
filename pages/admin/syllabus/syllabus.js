@@ -10,7 +10,7 @@ function AdminSyllabus() {
     <AdminMainLayout>
       <Admin>
       <AdminSyllabusLayout>
-        <p>Syllabus index page!!!!!!</p>
+        <p>Syllabus Admin Landing page!!</p>
       </AdminSyllabusLayout>
       </Admin>
     </AdminMainLayout> 

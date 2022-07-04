@@ -73,7 +73,7 @@ const TopNav = () => {
       </Menu.Item>
       
 
-      {isAuth() && isAuth().role === 1 && (
+      {isAuth() && isAuth().admin === 1 && (
           <Fragment>
               <SubMenu
                 key="SubMenu"
@@ -89,6 +89,7 @@ const TopNav = () => {
                   </Menu.Item>
                 </Menu.ItemGroup>
               </SubMenu>
+              
           </Fragment>
         )}
 

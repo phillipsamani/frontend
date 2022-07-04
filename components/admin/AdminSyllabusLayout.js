@@ -5,7 +5,7 @@ import HomeSidebar from './AdminSyllabusSidebar'
 function AdminLayout({children}) {
   return (
     <Layout>
-        <HomeSidebar/>
+        <HomeSidebar collapsible/>
         <Layout>
             <Content>
                 {children}

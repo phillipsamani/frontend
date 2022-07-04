@@ -27290,5 +27290,73 @@ div.ant-typography-edit-content.ant-typography-rtl {
   padding: 0;
 }
 
-
 /*# sourceMappingURL=antd.css.map*/
+
+.adminSyllabusForeword, .adminSyllabusIntroduction{
+  padding: 2rem;
+}
+
+.adminForewordContainer{
+  
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.adminForeword{
+  display: flex;
+ 
+}
+
+.adminForewordHolder{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.adminForewordForm{
+  padding-top: 0.3rem;
+}
+
+.adminForewordTitle{
+  flex: 6;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 7px;
+  margin-right: 1rem;
+  letter-spacing: 1px;
+}
+
+.adminForewordButtons{
+  flex: 2;
+  margin: 0.5rem;
+}
+
+.adminForewordButton1{
+  background: green; 
+  color: white;
+  border-radius: 5px;
+  padding: 7px;
+  margin-right: 1rem;
+  letter-spacing: 1px;
+}
+
+.adminForewordButton2{
+  background: red; 
+  color: white;
+  border-radius: 5px;
+  padding: 7px;
+  margin-right: 1rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.myInput{
+  padding-bottom: 2rem;
+  
+}
+
+.myInput-1{
+  padding-top: 2rem;
+  
+}
+
